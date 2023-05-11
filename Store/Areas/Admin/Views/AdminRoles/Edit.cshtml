@@ -1,0 +1,34 @@
+﻿@model Store.Models.Role
+
+@{
+    ViewData["Title"] = "Chỉnh sửa quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Danh sách quyền truy cập</a>
+            <span class="breadcrumb-item active">Chỉnh sửa quyền truy cập</span>
+        </nav>
+    </div>
+</div>
+
+<form asp-action="Edit" asp-route-id="@Model.RoleId" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="RoleId" />
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="form-label">Role Name</label>
+            <input type="text" class="form-control" asp-for="RoleName" placeholder="Role Name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" asp-for="Description" placeholder="Description">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary rounded-pill">Save Changes</button>
+</form><!-- Vertical Form -->   
